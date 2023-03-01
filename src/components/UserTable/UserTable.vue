@@ -15,12 +15,10 @@
           <th class="userTable__table-head-row-column">Active</th>
         </tr>
       </thead>
-      <tbody
-        v-for="(item, index) in users"
-        :key="item.id"
-        class="userTable__table-body"
-      >
+      <tbody class="userTable__table-body">
         <UserItem
+          v-for="(item, index) in users"
+          :key="item.id"
           :id="index"
           :name="item.name"
           :username="item.username"
@@ -40,9 +38,9 @@
 </template>
 
 <script>
-import UserItem from "./User/User.vue";
+import UserItem from './User/User.vue';
 export default {
-  name: "UserTable",
+  name: 'UserTable',
   components: { UserItem },
   data() {
     return {
@@ -70,7 +68,7 @@ export default {
     },
   },
   created() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((json) => (this.users = json));
   },
@@ -93,5 +91,17 @@ export default {
 .userTable__table-head-row-column {
   border: 1px solid rgb(192, 192, 192);
   padding: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .userTable__table-head-row {
+    display: none;
+  }
+
+  .userTable__table-body-row {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
 }
 </style>

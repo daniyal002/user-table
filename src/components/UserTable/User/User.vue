@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: "UserItem",
+  name: 'UserItem',
 
   props: {
     id: {
@@ -58,15 +58,15 @@ export default {
     },
     name: {
       type: String,
-      default: "No Name",
+      default: 'No Name',
     },
     username: {
       type: String,
-      default: "No Username",
+      default: 'No Username',
     },
     email: {
       type: String,
-      default: "undefield@gmail.com",
+      default: 'undefield@gmail.com',
     },
     address: {
       type: Object,
@@ -76,7 +76,7 @@ export default {
     },
     website: {
       type: String,
-      default: "google.com",
+      default: 'google.com',
     },
     company: {
       type: Object,
@@ -84,19 +84,19 @@ export default {
   },
   data() {
     return {
-      uName: "",
-      uUsername: "",
-      uEmail: "",
-      uStreet: "",
-      uCity: "",
-      uPhone: "",
-      uWebsite: "",
-      uComanyName: "",
+      uName: '',
+      uUsername: '',
+      uEmail: '',
+      uStreet: '',
+      uCity: '',
+      uPhone: '',
+      uWebsite: '',
+      uComanyName: '',
     };
   },
   methods: {
     update(id) {
-      this.$emit("update", {
+      this.$emit('update', {
         id: id,
         name: this.uName,
         username: this.uUsername,
@@ -109,7 +109,7 @@ export default {
       });
     },
     deleteUser(id) {
-      this.$emit("deleteUser", id);
+      this.$emit('deleteUser', id);
     },
   },
   created() {
@@ -170,5 +170,26 @@ export default {
 
 .button__delete:hover {
   background-color: #6d1812;
+}
+
+@media screen and (max-width: 768px) {
+  .userTable__table-body-row-column {
+    width: 500px;
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .userTable__table-body-row-column:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
 }
 </style>
